@@ -1,0 +1,46 @@
+@baseUrl=http://localhost:3000/api
+
+@resourceName=products
+
+#Post
+# @name getAll
+GET {{baseUrl}}/{{resourceName}} HTTP/1.1
+
+###
+# @name fillterProducts
+GET {{baseUrl}}/{{resourceName}}?price_gte=300
+
+###
+# @name fillterProducts
+GET {{baseUrl}}/{{resourceName}}?name_like=salmon
+
+###
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=5
+###
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=asc
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Điều hòa"
+}
+
+###
+# @name update
+PATCH  {{baseUrl}}/{{resourceName}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"New Điều hòa"
+}
+
+###
+# @name delete
+DELETE   {{baseUrl}}/{{resourceName}}/4 HTTP/1.1

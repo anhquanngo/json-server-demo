@@ -1,0 +1,27 @@
+@baseUrl = http://localhost:3000/api
+@resourceName=categories
+#Post
+# @name getAll
+GET {{baseUrl}}/{{resourceName}} HTTP/1.1
+
+###
+# @name addNew
+POST {{baseUrl}}/{{resourceName}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Điều hòa"
+}
+
+###
+# @name update
+PATCH  {{baseUrl}}/{{resourceName}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"New Điều hòa"
+}
+
+###
+# @name delete
+DELETE   {{baseUrl}}/{{resourceName}}/4 HTTP/1.1
